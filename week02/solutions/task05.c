@@ -5,10 +5,10 @@ int main(void)
     int x = 0, y = 0;
     scanf("%d %d", &x, &y);
 
-    int hammingDistance = 0;
-    const int largestBit = 1 << (8 * sizeof(int) - 2);
+    unsigned hammingDistance = 0u;
+    const unsigned largestBit = 1u << (8u * sizeof(int) - 1u);
 
-    for (int currentBit = largestBit; currentBit > 0; currentBit >>= 1) {
+    for (unsigned currentBit = largestBit; currentBit != 0u; currentBit >>= 1u) {
         if ((x & currentBit) != (y & currentBit)) {
             ++hammingDistance;
         }
